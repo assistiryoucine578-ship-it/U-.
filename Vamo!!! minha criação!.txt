@@ -61,7 +61,6 @@ local autoBlockTriggerSounds = {
     ["80516583309685"] = true,
     ["96762479007469"] = true,
     ["95443300253396"] = true,
-    ["98541221291764"] = true,
     ["125707284338841"] = true,
     ["121369993837377"] = true, 
     ["75467546215199"] = true,
@@ -147,11 +146,11 @@ local _savedManualAntiFlickDelay = antiFlickDelay or 0 -- keep user's manual val
 local killerDelayMap = {
     ["c00lkidd"] = 0,
     ["jason"]    = 0.013,
-    ["slasher"]  = 0.01,
-    ["1x1x1x1"]  = 0.15,
-    ["johndoe"]  = 0.33,
+    ["slasher"]  = 0.2,
+    ["1x1x1x1"]  = 0.20,
+    ["johndoe"]  = 0.49,
     ["noli"]     = 0.15,
-    ["Nosferatu"] = 0.12
+    ["Nosferatu"] = 0.17
 }
 
 local predictiveBlockOn = false
@@ -168,7 +167,7 @@ local HITBOX_DETECT_RADIUS = 6
 local Dspeed = 5.6 -- you can tweak these numbers
 local Ddelay = 0
 
-local killerNames = {"c00lkidd", "Jason", "JohnDoe", "1x1x1x1", "Noli", "Slasher", "Sixer", "Nosferatu"}
+local killerNames = {"c00lkidd", "Jason", "JohnDoe", "1x1x1x1", "Noli", "Slasher", "Sixer", "Nosferatu", "Hitbox"}
 local autoPunchOn = false
 local messageWhenAutoPunchOn = false
 local messageWhenAutoPunch = ""
