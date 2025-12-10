@@ -1,0 +1,312 @@
+-- Decompiler will be improved VERY SOON!
+-- Decompiled with Konstant V2.1, a fast Luau decompiler made in Luau by plusgiant5 (https://discord.gg/brNTY8nX8t)
+-- Decompiled on 2025-12-10 18:28:55
+-- Luau version 6, Types version 3
+-- Time taken: 0.034652 seconds
+
+local Knit_upvr = require(game.ReplicatedStorage.Knit.Knit)
+local ReplicatedStorage = game.ReplicatedStorage
+local var3_upvw
+local var4_upvw
+local any_CreateController_result1 = Knit_upvr.CreateController({
+	Name = "NaoyaController";
+})
+local Sounds_upvr = ReplicatedStorage.Sounds
+local Utils_upvr = ReplicatedStorage.Utils
+local TweenService_upvr = game:GetService("TweenService")
+local Debris_upvr = game:GetService("Debris")
+local LocalPlayer_upvr = game.Players.LocalPlayer
+local CameraShaker_upvr = require(ReplicatedStorage.Modules.CameraShaker)
+function any_CreateController_result1.KnitStart(arg1) -- Line 25
+	--[[ Upvalues[8]:
+		[1]: var4_upvw (read and write)
+		[2]: Sounds_upvr (readonly)
+		[3]: Utils_upvr (readonly)
+		[4]: TweenService_upvr (readonly)
+		[5]: Debris_upvr (readonly)
+		[6]: LocalPlayer_upvr (readonly)
+		[7]: CameraShaker_upvr (readonly)
+		[8]: var3_upvw (read and write)
+	]]
+	local tbl_upvr = {
+		Hit = function(arg1_2, arg2) -- Line 27
+			--[[ Upvalues[2]:
+				[1]: var4_upvw (copied, read and write)
+				[2]: Sounds_upvr (copied, readonly)
+			]]
+			local HumanoidRootPart_6 = arg1_2:FindFirstChild("HumanoidRootPart")
+			if not HumanoidRootPart_6 then
+			else
+				var4_upvw:Flash(arg1_2, Color3.new(1, 1, 1))
+				var4_upvw:PlaySound(Sounds_upvr.Gojo.M1:FindFirstChild("Hit"..arg2), HumanoidRootPart_6, game.SoundService.Effect)
+			end
+		end;
+		Chase = function(arg1_3) -- Line 35
+			--[[ Upvalues[5]:
+				[1]: Utils_upvr (copied, readonly)
+				[2]: TweenService_upvr (copied, readonly)
+				[3]: Debris_upvr (copied, readonly)
+				[4]: var4_upvw (copied, read and write)
+				[5]: Sounds_upvr (copied, readonly)
+			]]
+			local HumanoidRootPart_5 = arg1_3.HumanoidRootPart
+			if not HumanoidRootPart_5 then
+			else
+				local clone = Utils_upvr.Gojo.LapseBlue.Throw:Clone()
+				clone.CFrame = HumanoidRootPart_5.CFrame * CFrame.new(0, 1, -4)
+				clone.Size = Vector3.new(0, 0, 2)
+				clone.Parent = workspace.Effects
+				TweenService_upvr:Create(clone, TweenInfo.new(0.3), {
+					Size = Vector3.new(9, 9, 0);
+					Transparency = 1;
+				}):Play()
+				Debris_upvr:AddItem(clone, 0.3)
+				var4_upvw:PlaySound(Sounds_upvr.Misc.Chase, HumanoidRootPart_5, game.SoundService.Effect)
+				var4_upvw:DustTrail(arg1_3, 0.4, CFrame.Angles(0, (-math.pi/2), 0))
+			end
+		end;
+		Swing = function(arg1_4, arg2) -- Line 50
+			--[[ Upvalues[2]:
+				[1]: var4_upvw (copied, read and write)
+				[2]: Sounds_upvr (copied, readonly)
+			]]
+			local HumanoidRootPart = arg1_4:FindFirstChild("HumanoidRootPart")
+			if not HumanoidRootPart then
+			else
+				var4_upvw:PlaySound(Sounds_upvr.Misc.Swing.Fist, HumanoidRootPart, game.SoundService.Effect)
+			end
+		end;
+		Swing2 = function(arg1_5, arg2, arg3) -- Line 57
+			--[[ Upvalues[1]:
+				[1]: var4_upvw (copied, read and write)
+			]]
+			if arg2 == 1 or arg2 == 2 then
+				var4_upvw:ArmFlash(arg1_5["Left Arm"], Color3.fromRGB(128, 126, 255), 0.4)
+			else
+				if arg2 == 3 then
+					var4_upvw:ArmFlash(arg1_5["Right Arm"], Color3.fromRGB(128, 126, 255), 0.4)
+					return
+				end
+				var4_upvw:ArmFlash(arg1_5["Right Leg"], Color3.fromRGB(128, 126, 255), 0.4)
+			end
+		end;
+		Launch = function(arg1_6, arg2) -- Line 67
+			--[[ Upvalues[7]:
+				[1]: Utils_upvr (copied, readonly)
+				[2]: TweenService_upvr (copied, readonly)
+				[3]: Debris_upvr (copied, readonly)
+				[4]: var4_upvw (copied, read and write)
+				[5]: Sounds_upvr (copied, readonly)
+				[6]: LocalPlayer_upvr (copied, readonly)
+				[7]: CameraShaker_upvr (copied, readonly)
+			]]
+			local HumanoidRootPart_4 = arg1_6:FindFirstChild("HumanoidRootPart")
+			if not HumanoidRootPart_4 then
+			else
+				local clone_3 = Utils_upvr.Gojo.LapseBlue.Throw:Clone()
+				clone_3.CFrame = CFrame.new(HumanoidRootPart_4.Position) * CFrame.Angles((math.pi/2), 0, 0)
+				clone_3.Size = Vector3.new(0, 0, 5)
+				clone_3.Parent = workspace.Effects
+				TweenService_upvr:Create(clone_3, TweenInfo.new(0.3), {
+					Size = Vector3.new(8, 8, 0);
+					Transparency = 1;
+					Position = clone_3.Position + Vector3.new(0, arg2, 0);
+				}):Play()
+				Debris_upvr:AddItem(clone_3, 0.3)
+				if arg2 < 0 then
+					var4_upvw:PlaySound(Sounds_upvr.Megumi.Mahoraga.Throw.Break, HumanoidRootPart_4, game.SoundService.Effect)
+					var4_upvw:DustBreak(HumanoidRootPart_4.Position + Vector3.new(0, 2, 0), Vector3.new(0, 1, 0), 6, 15, 0.4, 1)
+					if LocalPlayer_upvr:DistanceFromCharacter(HumanoidRootPart_4.Position) < 20 then
+						CameraShaker_upvr.CurrentShaker:Shake(CameraShaker_upvr.Presets.LightHit)
+					end
+				end
+			end
+		end;
+		Frame = function(arg1_7, arg2) -- Line 86
+			--[[ Upvalues[6]:
+				[1]: Utils_upvr (copied, readonly)
+				[2]: Debris_upvr (copied, readonly)
+				[3]: TweenService_upvr (copied, readonly)
+				[4]: var4_upvw (copied, read and write)
+				[5]: Sounds_upvr (copied, readonly)
+				[6]: CameraShaker_upvr (copied, readonly)
+			]]
+			local HumanoidRootPart_3_upvr = arg1_7:FindFirstChild("HumanoidRootPart")
+			if not HumanoidRootPart_3_upvr then
+			else
+				for _, v in arg1_7:GetDescendants() do
+					if v:IsA("BasePart") or v:IsA("Decal") then
+						if v.Transparency ~= 1 then
+							v.Transparency = 1
+							;({})[v] = v.Transparency
+						end
+					end
+				end
+				local clone_7_upvr = Utils_upvr.Naoya.NaoyaGlass:Clone()
+				clone_7_upvr.CFrame = arg1_7.Torso.CFrame
+				clone_7_upvr.Parent = workspace.Effects
+				Debris_upvr:AddItem(clone_7_upvr, 4)
+				clone_7_upvr.Transparency = 0
+				TweenService_upvr:Create(clone_7_upvr, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+					Transparency = 0.5;
+				}):Play()
+				var4_upvw:PlaySound(Sounds_upvr.Naoya.Frame, HumanoidRootPart_3_upvr, game.SoundService.Effect)
+				task.delay(0.5, function() -- Line 106
+					--[[ Upvalues[2]:
+						[1]: clone_7_upvr (readonly)
+						[2]: TweenService_upvr (copied, readonly)
+					]]
+					if clone_7_upvr.Transparency == 1 then
+					else
+						TweenService_upvr:Create(clone_7_upvr, TweenInfo.new(2.45, Enum.EasingStyle.Exponential, Enum.EasingDirection.In), {
+							Transparency = 0;
+						}):Play()
+					end
+				end)
+				local tbl_2_upvr = {}
+				task.spawn(function() -- Line 111
+					--[[ Upvalues[11]:
+						[1]: clone_7_upvr (readonly)
+						[2]: arg1_7 (readonly)
+						[3]: HumanoidRootPart_3_upvr (readonly)
+						[4]: arg2 (readonly)
+						[5]: tbl_2_upvr (readonly)
+						[6]: TweenService_upvr (copied, readonly)
+						[7]: var4_upvw (copied, read and write)
+						[8]: Sounds_upvr (copied, readonly)
+						[9]: CameraShaker_upvr (copied, readonly)
+						[10]: Utils_upvr (copied, readonly)
+						[11]: Debris_upvr (copied, readonly)
+					]]
+					-- KONSTANTWARNING: Variable analysis failed. Output will have some incorrect variable assignments
+					repeat
+						clone_7_upvr.CFrame = arg1_7.Torso.CFrame
+						task.wait()
+					until not arg1_7.Parent and not HumanoidRootPart_3_upvr.Parent and not arg2:IsDescendantOf(workspace.Characters)
+					for i_2, v_2 in tbl_2_upvr do
+						if i_2.Parent then
+							i_2.Transparency = v_2
+						end
+					end
+					TweenService_upvr:Create(clone_7_upvr, TweenInfo.new(0), {
+						Transparency = 1;
+					}):Play()
+					clone_7_upvr.Part.Transparency = 1
+					clone_7_upvr.Front.Transparency = 1
+					clone_7_upvr.Back.Transparency = 1
+					clone_7_upvr.Attachment.Flash:Emit(3)
+					clone_7_upvr.Attachment.Wind:Emit(5)
+					clone_7_upvr.Attachment.WindCircle:Emit(5)
+					clone_7_upvr.Attachment.Shockwave:Emit(4)
+					clone_7_upvr.Shatter:Emit(40)
+					var4_upvw:PlaySound(Sounds_upvr.Naoya.FrameBreak, HumanoidRootPart_3_upvr, game.SoundService.Effect)
+					if (workspace.CurrentCamera.CFrame.Position - clone_7_upvr.Position).Magnitude < 40 then
+						CameraShaker_upvr.CurrentShaker:Shake(CameraShaker_upvr.Presets.Snap)
+					end
+					if _G.Settings.DesPHY then
+						if 100 < (workspace.CurrentCamera.CFrame.Position - clone_7_upvr.Position).Magnitude then return end
+						task.wait(0.1)
+						for _ = 1, 20 do
+							local clone_5 = Utils_upvr.Gojo.Shard:Clone()
+							clone_5.Size = Vector3.new(0.2, math.random(5, 20) / 10, math.random(5, 20) / 10)
+							clone_5.CFrame = clone_7_upvr.CFrame * CFrame.new(math.random(-2, 2), math.random(-4, 4), 0)
+							clone_5.CFrame *= CFrame.Angles(0, math.random(0, math.pi), 0)
+							clone_5.CanCollide = true
+							clone_5.CollisionGroup = "Effects"
+							clone_5.Parent = workspace.Effects
+							clone_5.Transparency = 0.5
+							clone_5.Color = clone_7_upvr.Color
+							clone_5.Material = Enum.Material.Neon
+							clone_5.RotVelocity = Vector3.new(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+							clone_5.Velocity = Random.new():NextUnitVector().Unit * math.random(30, 60) + HumanoidRootPart_3_upvr.Velocity
+							TweenService_upvr:Create(clone_5, TweenInfo.new(3, Enum.EasingStyle.Exponential, Enum.EasingDirection.In), {
+								Size = Vector3.new(0, 0, 0);
+							}):Play()
+							Debris_upvr:AddItem(clone_5, 3)
+							local _
+						end
+					end
+				end)
+			end
+		end;
+		Zwoosh = function(arg1_8, arg2) -- Line 162
+			--[[ Upvalues[5]:
+				[1]: var4_upvw (copied, read and write)
+				[2]: Sounds_upvr (copied, readonly)
+				[3]: Utils_upvr (copied, readonly)
+				[4]: Debris_upvr (copied, readonly)
+				[5]: TweenService_upvr (copied, readonly)
+			]]
+			-- KONSTANTWARNING: Variable analysis failed. Output will have some incorrect variable assignments
+			local HumanoidRootPart_2 = arg1_8:FindFirstChild("HumanoidRootPart")
+			if not HumanoidRootPart_2 then
+			else
+				var4_upvw:PlaySound(Sounds_upvr.Naoya.Decisive.Startup, HumanoidRootPart_2, game.SoundService.Effect)
+				local clone_6 = Utils_upvr.Damage.HitGlow:Clone()
+				Debris_upvr:AddItem(clone_6, 1.2)
+				clone_6.Parent = workspace.Effects
+				for _, v_3 in clone_6:GetChildren() do
+					v_3.Color = Color3.fromRGB(128, 126, 255)
+					v_3.Anchored = true
+					v_3.CFrame = arg1_8[v_3.Name].CFrame
+					TweenService_upvr:Create(v_3, TweenInfo.new(1.2), {
+						Transparency = 1;
+						Position = v_3.Position;
+					}):Play()
+					local _
+				end
+				local clone_2 = Utils_upvr.Naoya.Teleport:Clone()
+				clone_2.CFrame = HumanoidRootPart_2.CFrame
+				clone_2.Parent = workspace.Effects
+				clone_2.Lines:Emit(8)
+				clone_2.Floor.Dust:Emit(30)
+				Debris_upvr:AddItem(clone_2, 1)
+				for _, v_4 in arg1_8:GetDescendants() do
+					if v_4:IsA("BasePart") or v_4:IsA("Decal") then
+						if v_4.Transparency ~= 1 then
+							v_4.Transparency = 1
+							;({})[v_4] = v_4.Transparency
+						end
+					end
+				end
+				task.wait(0.25)
+				var4_upvw:PlaySound(Sounds_upvr.Naoya.Decisive.Flicker2, HumanoidRootPart_2, game.SoundService.Effect)
+				for i_6, v_5 in {} do
+					if i_6.Parent then
+						i_6.Transparency = v_5
+					end
+					-- KONSTANTERROR: Expression was reused, decompilation is incorrect
+				end
+				local clone_4 = Utils_upvr.Naoya.Teleport:Clone()
+				clone_4.CFrame = HumanoidRootPart_2.CFrame
+				clone_4.Parent = workspace.Effects
+				clone_4.Lines:Emit(8)
+				clone_4.Floor.Dust:Emit(30)
+				Debris_upvr:AddItem(clone_4, 1)
+			end
+		end;
+	}
+	var3_upvw.Effects:Connect(function(arg1_9, ...) -- Line 207
+		--[[ Upvalues[1]:
+			[1]: tbl_upvr (readonly)
+		]]
+		local var97 = tbl_upvr[arg1_9]
+		if not var97 then
+		else
+			var97(...)
+		end
+	end)
+end
+local var98_upvw
+function any_CreateController_result1.KnitInit(arg1) -- Line 214
+	--[[ Upvalues[4]:
+		[1]: var3_upvw (read and write)
+		[2]: Knit_upvr (readonly)
+		[3]: var98_upvw (read and write)
+		[4]: var4_upvw (read and write)
+	]]
+	var3_upvw = Knit_upvr.GetService("NaoyaService")
+	var98_upvw = Knit_upvr.GetController("HitboxController")
+	var4_upvw = Knit_upvr.GetController("FXController")
+end
+return any_CreateController_result1
