@@ -70,7 +70,7 @@ local autoBlockTriggerSounds = {
     ["88000454882343"] = true,
     ["104910828105172"] = true,
     ["90620531468240"] = true,
-    ["117173212095661] = true,
+    ["117173212095661"] = true,
 }
 
 -- Prevent repeated aim triggers for the same animation track
@@ -153,6 +153,7 @@ local killerDelayMap = {
     ["johndoe"]  = 0.60,
     ["noli"]     = 0.15,
     ["Nosferatu"] = 0.17,
+    ["Sixer"] = 0.3,
 }
 
 local predictiveBlockOn = false
