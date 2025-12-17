@@ -146,10 +146,10 @@ local _savedManualAntiFlickDelay = antiFlickDelay or 0 -- keep user's manual val
 local killerDelayMap = {
     ["c00lkidd"] = 0,
     ["jason"]    = 0.013,
-    ["slasher"]  = 0.01,
-    ["1x1x1x1"]  = 0.15,
-    ["johndoe"]  = 0.33,
-    ["noli"]     = 0.15,
+    ["slasher"]  = 0.05,
+    ["1x1x1x1"]  = 0.29,
+    ["johndoe"]  = 0.49,
+    ["noli"]     = 0.20,
 }
 
 local predictiveBlockOn = false
